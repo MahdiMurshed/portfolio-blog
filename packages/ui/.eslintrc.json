@@ -1,0 +1,13 @@
+{
+  "extends": ["plugin:storybook/recommended"]
+  //   // New
+  //   "overrides": [
+  //     {
+  //       "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+  //       "rules": {
+  //         // example of overriding a rule
+  //         "storybook/hierarchy-separator": "error"
+  //       }
+  //     }
+  //   ],
+}
