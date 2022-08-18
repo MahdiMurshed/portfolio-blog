@@ -1,10 +1,14 @@
-import { Button } from "ui";
+import Link from "next/link";
 
-export default function Docs() {
+export default function Home() {
   return (
     <div>
-      <h1>Docs</h1>
-      <Button />
+      <Link href="/about">
+        <a>
+          <h2>About Page &rarr;</h2>
+          <p>Cypress will test if this link is working.</p>
+        </a>
+      </Link>
     </div>
   );
 }
