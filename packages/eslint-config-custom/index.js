@@ -5,6 +5,7 @@ module.exports = {
     "next/core-web-vitals",
     "eslint:recommended",
     "prettier",
+    "plugin:cypress/recommended",
   ],
   globals: {
     React: "readonly",
