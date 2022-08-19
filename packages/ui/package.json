@@ -39,6 +39,7 @@
     "@mantine/nprogress": "^5.1.6",
     "@mantine/spotlight": "^5.1.6",
     "@tanstack/react-query": "^4.2.1",
+    "axios": "^0.27.2",
     "zustand": "^4.0.0"
   }
 }
