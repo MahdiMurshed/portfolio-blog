@@ -24,12 +24,12 @@ export default function Home({ posts, error }: any) {
 export const getServerSideProps: GetServerSideProps = async () => {
   const {
     data: { result, error },
-  } = await API.get("http://localhost:3001/api/get_posts");
+  } = await API.get("http://localhost:3001/api/posts");
 
   return {
     props: {
-      posts: result,
-      error: error,
+      posts: result || null,
+      error: error || null,
     },
   };
 };
