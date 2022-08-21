@@ -1,11 +1,23 @@
 /* eslint-disable turbo/no-undeclared-env-vars */
 
+export const REQUESTMETHOD = {
+  GET: "GET",
+  POST: "POST",
+  DELETE: "DELETE",
+};
+export interface POSTBODY {
+  title: string;
+  description: any;
+  author: any;
+  tags: any[];
+}
+
 export const tag_id = process.env.NOTION_TAGS || "";
 export const author_id = process.env.NOTION_AUTHOR || "";
 export const title_id = process.env.NOTION_TITLE || "";
 export const description_id = process.env.NOTION_DESCRIPTION || "";
 export const database_id = process.env.NOTION_DATABASE_ID || "";
-import { POSTBODY } from "../pages/api/post_blog_post";
+
 import notion from "./notion";
 
 export const getData = async () => {
