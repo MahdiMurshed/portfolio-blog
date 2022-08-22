@@ -21,11 +21,28 @@ export const database_id = process.env.NOTION_DATABASE_ID || "";
 import notion from "./notion";
 
 export const getData = async () => {
-  const response = await notion.databases.query({
+  const notionPages = await notion.databases.query({
     database_id,
+    sorts: [{ property: title_id, direction: "descending" }],
   });
-  return response.results;
+
+  return notionPages.results.map(fromNotionPage);
 };
+
+function fromNotionPage(notionPage: any) {
+  const propertiesById = getPropertyById(notionPage.properties);
+
+  return {
+    id: notionPage.id,
+    title: propertiesById[title_id].title[0].plain_text,
+    tags: propertiesById[tag_id].multi_select.map(
+      (option: { id: any; name: any }) => {
+        return { id: option.id, name: option.name };
+      }
+    ),
+    description: propertiesById[description_id].rich_text[0].text.content,
+  };
+}
 
 export const getProperty = async (property: string) => {
   const { properties } = await notion.databases.retrieve({
@@ -80,7 +97,7 @@ export const postData = async ({
       [tag_id]: {
         multi_select: tags,
       },
-    },
+    } as {},
   });
 
   return response;
